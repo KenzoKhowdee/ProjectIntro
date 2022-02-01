@@ -1,13 +1,13 @@
 import java.util.Scanner;
 import java.util.SplittableRandom;
-import java.io.BufferedReader;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.BufferedWriter;
+
 public class SIR {
 	public static void main(String[] args) throws IOException {
 		Scanner sc = new Scanner(System.in);
@@ -69,11 +69,7 @@ public class SIR {
 			}
 		}
 		}	
-		//System.out.println(infectionRate + recoverRate + days);//testing the scanner
-		//checkUp(grid_file, row + 1, individualCount);
-		//checkDown(grid_file,2, individualCount);
-		//checkRight(grid_file,row + 1);
-		//checkLeft(grid_file,);
+		
 	}
 	public static boolean allRecovered(File grid_file, int count) throws FileNotFoundException {
 		Scanner sc = new Scanner(grid_file);
@@ -272,34 +268,7 @@ public class SIR {
 			clearGrid(old);
 			int row = (int) Math.sqrt(count);
 			int randomNumber = random.nextInt(1,count +1) ;
-			/* 
-			 // This makes a grid based around x and y(too many nested with little benifit)
-			  * general trend with these failed grids was that they made it way to ugly and forced too much data to be parsed 
-			for(int i = 1; i <= row;i++) {			
-				for(int j = 1; j <= row;j++) {
-					if(i == 1 && j == 1) {
-					file.write(i  + " " + j + " I " );
-					
-					}
-					else{
-					file.write(i  + " " + j  + " S ");
-					}
-					file.write("\n" );			
-				}
-			}
-	*/		//grid.write("\n");
-			//create a grid based on total count and makes each have a unique number		
-		/*	for(int i = 1; i <= count;i++) {
-				if(i == 1 ) {
-					file.write(i + " I ");
-					file.write("\n" );
-				}
-				else {
-					file.write(i + " S ");
-					file.write("\n" );
-				}
-			}
-			*/
+			
 			// creates a grid using the line number itself as the index much easier using the current scanner
 			for(int i = 1; i <= count;i++) {
 				if(i == randomNumber ) {
