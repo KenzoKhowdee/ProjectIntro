@@ -6,11 +6,11 @@ S
 S
 S
 S
-R
+S
 R
 S
 S
-R
-R
-R
+S
+S
+S
 S
