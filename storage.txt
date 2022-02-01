@@ -1,0 +1,8 @@
+Day: 1 Susceptible: 15 Infected: 1 Recovered: 0
+Day: 2 Susceptible: 15 Infected: 1 Recovered: 0
+Day: 3 Susceptible: 14 Infected: 2 Recovered: 0
+Day: 4 Susceptible: 12 Infected: 4 Recovered: 0
+Day: 5 Susceptible: 12 Infected: 4 Recovered: 0
+Day: 6 Susceptible: 11 Infected: 4 Recovered: 1
+Day: 7 Susceptible: 11 Infected: 2 Recovered: 3
+Day: 8 Susceptible: 11 Infected: 0 Recovered: 5
