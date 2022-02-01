@@ -172,22 +172,19 @@ public class SIR {
 			
 		}
 	}
-	
+	// this method is used to check the infection chance
 	public static void infecting(int count, double infectRate, double recRate, File grid_file, File temp_file) throws IOException {
-		//FileReader reads = new FileReader(grid_file);
+		
 		FileWriter writes = new FileWriter(temp_file);
 		Scanner sc = new Scanner(grid_file);
 		int row = (int) Math.sqrt(count);
 		String currentStatus ="";
 		String grid = "";
 		char temp;
-		// increments through all of the data one by one
 		int i =1;
 		int status;
 		while(i <= count) {
-			//status = reads.read();
-			//temp = (char)status;
-			//currentStatus = Character.toString(temp);
+		
 			currentStatus = sc.nextLine();
 			if(currentStatus.equals("R")) {
 				grid += "R";
@@ -198,45 +195,35 @@ public class SIR {
 				}
 				else {
 					grid += "I";
-					//System.out.println("top left corner" + i);
 				}
 			}
 			else if(currentStatus.equals("S")) {
 				if(i == 1) { //top left corner
 					grid += infectionCalc(checkDown(grid_file,i,count) + checkRight(grid_file,i), infectRate);
-					//System.out.println("top left corner" + i);
 				}
 				else if (i == row) { //top right corner
 					grid += infectionCalc(checkDown(grid_file,i,count) + checkLeft(grid_file,i) , infectRate);	
-					//System.out.println("top right corner"+ i);
 				}
 				else if(i == count - row + 1) {//bottom left corner
 					grid += infectionCalc(checkUp(grid_file,i,count) + checkRight(grid_file,i), infectRate);
-					//System.out.println("bottom left corner"+ i);
 				}
 				else if(i == count) {//bottom right corner
 					grid += infectionCalc(checkUp(grid_file,i,count) + checkLeft(grid_file,i), infectRate);
-					//System.out.println("bottom right corner"+ i);
 				}
 				else if(i > 1 && i < row) {//top row
 					grid += infectionCalc(checkRight(grid_file,i) + checkLeft(grid_file,i) + checkDown(grid_file,i,count)  , infectRate);
-					//System.out.println("top row"+ i);
 				}
 				else if(i > count - row && i < count) { // bottom row
 					grid += infectionCalc(checkRight(grid_file,i) + checkLeft(grid_file,i) + checkUp(grid_file,i,count)  , infectRate);
-					//System.out.println(" bottom row"+ i);
 				}
 				else if(i%row == 1) { // left column 
 					grid += infectionCalc(checkDown(grid_file,i,count) + checkUp(grid_file,i,count) + checkRight(grid_file,i), infectRate);
-					//System.out.println("left column "+ i);
 				}
 				else if(i%row == 0 ) { // right column
 					grid += infectionCalc(checkDown(grid_file,i,count) + checkUp(grid_file,i,count) + checkLeft(grid_file,i), infectRate);
-					//System.out.println("right column"+ i);
 				}
 				else{ // the middle ones
 					grid += infectionCalc(checkDown(grid_file,i,count) + checkUp(grid_file,i,count) + checkRight(grid_file,i) + checkLeft(grid_file,i), infectRate);
-					//System.out.println(" the middle ones"+ i);
 				}			
 			}
 			else {
